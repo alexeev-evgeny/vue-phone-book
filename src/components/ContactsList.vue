@@ -1,28 +1,34 @@
 <script>
-import { mapState, mapActions } from 'vuex';
+import ContactsListItem from './ContactsListItem.vue';
 
 export default {
-    async created() {
-        await this.fetchContacts();
-
-        console.error('CREATED', { contacts: this.contacts });
+    props: {
+        contacts: {
+            type: Array,
+            default() {
+                return [];
+            },
+        },
     },
 
-    computed: {
-        ...mapState('Contacts', ['contacts']),
-    },
-
-    methods: {
-        ...mapActions('Contacts', ['fetchContacts']),
+    components: {
+        ContactsListItem,
     },
 };
 </script>
 
 <template lang="pug">
 .contacts-list
-    h2 Кококонтакты
-    pre(v-for="contact in contacts")
-        | {{ contact.name }}
-        | {{ contact.email }}
-        hr
+    ContactsListItem(
+        v-for="contact in contacts",
+        :key="contact.id",
+        :contact="contact"
+    )
+
 </template>
+
+<style lang="scss" scoped>
+.contacts-list {
+    display: block;
+}
+</style>
