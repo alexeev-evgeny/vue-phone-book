@@ -1,16 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import get from 'lodash/get';
 
+import config from '../config';
 import ContactsService from '../services/Contacts';
 import ContactsStore from './ContactsStore';
 
 Vue.use(Vuex);
 
 const contactsService = new ContactsService(axios, {
-    host: 'https://phonebook-c9b5.restdb.io',
-    contacts: '/rest/contacts',
-    apiKey: '576e6162b9d4b50b4dc9d916',
+    host: get(config, 'api.host'),
+    contacts: get(config, 'api.contacts'),
+    apiKey: get(config, 'api.key'),
 });
 
 export default new Vuex.Store({
