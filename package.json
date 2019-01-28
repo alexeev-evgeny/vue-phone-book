@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "vue": "^2.5.17",
+    "qs": "^6.5.2",
+    "vue": "^2.5.22",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "qs": "^6.5.2"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
@@ -31,6 +31,6 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "vue-cli-plugin-pug": "^1.0.7",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.22"
   }
 }

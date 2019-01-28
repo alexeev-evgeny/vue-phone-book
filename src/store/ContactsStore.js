@@ -1,4 +1,4 @@
-import sortBy from 'lodash/sortBy';
+// import sortBy from 'lodash/sortBy';
 
 export default function ContactsStore(contactsService) {
     return {

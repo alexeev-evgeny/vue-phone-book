@@ -1,11 +1,11 @@
 <script>
 import { mapState, mapActions } from 'vuex';
-import ContactsList from './ContactsList.vue';
+import List from './List.vue';
 import Preloader from './Preloader.vue';
 
 export default {
     components: {
-        ContactsList,
+        List,
         Preloader,
     },
 
@@ -30,7 +30,7 @@ export default {
 
     Preloader(v-if="isPreloaderVisible")
 
-    ContactsList(
+    List(
         :contacts="contacts"
     )
 

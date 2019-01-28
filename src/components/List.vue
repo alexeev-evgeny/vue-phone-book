@@ -1,5 +1,6 @@
 <script>
-import ContactsListItem from './ContactsListItem.vue';
+import ListItem from './ListItem.vue';
+import ListHead from './ListHead.vue';
 
 export default {
     props: {
@@ -12,14 +13,23 @@ export default {
     },
 
     components: {
-        ContactsListItem,
+        ListHead,
+        ListItem,
+    },
+
+    data() {
+        return {
+            headTitles: ['Name', 'Email', 'Phone', ''],
+        };
     },
 };
 </script>
 
 <template lang="pug">
-.contacts-list
-    ContactsListItem(
+.list
+    ListHead(:titles="headTitles")
+
+    ListItem(
         v-for="contact in contacts",
         :key="contact.id",
         :contact="contact"
@@ -28,7 +38,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.contacts-list {
+.list {
     display: block;
 }
 </style>

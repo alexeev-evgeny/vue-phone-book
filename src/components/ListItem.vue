@@ -17,13 +17,12 @@ export default {
             :alt="contact.name"
         )
 
-    .list-item__col
         span.list-item__name
             | {{ contact.name }}
 
     .list-item__col
         span.list-item__email
-            | {{ contact.name }}
+            | {{ contact.email }}
 
     .list-item__col
         span.list-item__phone
@@ -31,8 +30,8 @@ export default {
 
     .list-item__col
         .list-item__favorite
-            | 
             | {{ contact.favorite }}
+
 </template>
 
 <style lang="scss" scoped>
@@ -41,24 +40,25 @@ export default {
     width: 100%;
     table-layout: fixed;
     padding: 10px 0;
-    border-top: 1px solid #d6d6d6;
+    font-size: 15px;
+    color: #000;
 
-    &:first-child {
-        border-top: none;
+    &:hover {
+        background-color: #f5f5f5;
     }
 
     &__col {
         display: table-cell;
         vertical-align: middle;
         text-align: left;
-
-        &:first-child {
-            width: 60px;
-        }
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__avatar {
-        display: block;
+        display: inline-block;
+        vertical-align: middle;
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -66,7 +66,10 @@ export default {
         overflow: hidden;
     }
 
-    &__favorite {
+    &__name {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 24px;
     }
 }
 </style>
