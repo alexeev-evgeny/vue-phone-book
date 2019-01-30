@@ -11,8 +11,9 @@ export default {
 
 <template lang="pug">
 .list-head
-    .title(v-for="title in titles")
-        | {{ title }}
+    .title(v-for="{ title, name } in titles")
+        span.caption(@click="$emit('sort', name)")
+            | {{ title }}
 </template>
 
 <style lang="scss" scoped>
@@ -21,6 +22,7 @@ export default {
     table-layout: fixed;
     width: 100%;
 }
+
 .title {
     display: table-cell;
     padding: 10px 0;
@@ -29,11 +31,20 @@ export default {
     font-weight: bold;
     line-height: 18px;
     box-sizing: border-box;
-    color: #5f6368;
+
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
     vertical-align: middle;
     white-space: nowrap;
+}
+
+.caption {
+    cursor: pointer;
+    color: #5f6368;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 </style>

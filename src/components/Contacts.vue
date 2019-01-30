@@ -18,7 +18,7 @@ export default {
     },
 
     methods: {
-        ...mapActions('Contacts', ['fetchContacts']),
+        ...mapActions('Contacts', ['fetchContacts', 'sortContactsByField']),
     },
 };
 </script>
@@ -32,6 +32,7 @@ export default {
 
     List(
         :contacts="contacts"
+        @sortContacts="sortContactsByField"
     )
 
     
